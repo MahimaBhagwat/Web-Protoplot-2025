@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinanceTrack - Personal Finance Manager</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-theme">
+    <!-- Quote Landing Page -->
+    <div id="quoteLanding">
+        <div class="quote-container">
+            <div class="quote" id="quote-text">"The best investment you can make is in yourself."</div>
+            <div class="author" id="quote-author">- Warren Buffett</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="mainContent">
+        <!-- Header -->
+        <header>
+            <div class="logo-container">
+                <img src="https://png.pngtree.com/png-clipart/20200226/original/pngtree-financial-consulting-logo-vector-template-png-image_5314396.jpg" alt="FinanceTrack Logo" class="logo-img">
+                <div class="logo-text">Finn<span>Mate</span></div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" data-section="dashboard">Dashboard</a></li>
+                    <li><a href="#" data-section="expenses">Expenses</a></li>
+                    <li><a href="#" data-section="budgets">Budgets</a></li>
+                    <li><a href="#" data-section="reports">Reports</a></li>
+                    <li><a href="#" data-section="game">Game</a></li>
+                </ul>
+            </nav>
+            <div class="header-controls">
+                <div class="theme-toggle">
+                    <input type="checkbox" id="themeToggle" class="toggle-checkbox">
+                    <label for="themeToggle" class="toggle-label">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                        <span class="toggle-ball"></span>
+                    </label>
+                </div>
+                <div class="auth-buttons">
+                    <button class="login-btn">Log In</button>
+                    <button class="signup-btn">Sign Up</button>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Take Control of Your Finances</h1>
+                <p>Track your expenses, set budgets, and achieve your financial goals with our intuitive personal finance tracker.</p>
+                <div class="cta-buttons">
+                    <button class="primary-btn">Get Started</button>
+                    <button class="secondary-btn">Learn More</button>
+                </div>
+            </div>
+        </section>
+            
+        <!--Dashboard Section -->
+        <section id="dashboard" class="dashboard active-section">
+            <h2 class="section-title">Your Financial Overview</h2>
+            
+            <div class="stats-container">
+                <div class="stat-card income">
+                    <h3>Total Income</h3>
+                    <p>Rs-10,000.00</p>
+                </div>
+                <div class="stat-card expense">
+                    <h3>Total Expenses</h3>
+                    <p>Rs-1,800.00</p>
+                </div>
+                <div class="stat-card balance">
+                    <h3>Current Balance</h3>
+                    <p>Rs-4,500.00</p>
+                </div>
+                <div class="stat-card budget">
+                    <h3>Monthly Budget</h3>
+                    <p>Rs-1,000.00</p>
+                </div>
+            </div>
+            
+            <div class="recent-transactions">
+                <h3 class="form-title">Recent Transactions</h3>
+                <div class="transaction-list">
+                    <div class="transaction-item">
+                        <div class="transaction-info">
+                            <h4>Grocery Shopping</h4>
+                            <p>Food & Dining • Today</p>
+                        </div>
+                        <div class="transaction-amount expense-amount">-Rs-1,200.00</div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-info">
+                            <h4>Salary</h4>
+                            <p>Income • Yesterday</p>
+                        </div>
+                        <div class="transaction-amount income-amount">+Rs-10,000.00</div>
+                    </div>
+                    <div class="transaction-item">
+                        <div class="transaction-info">
+                            <h4>Electricity Bill</h4>
+                            <p>Utilities • 2 days ago</p>
+                        </div>
+                        <div class="transaction-amount expense-amount">-Rs-800.00</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expenses Section -->
+        <section id="expenses" class="dashboard">
+            <h2 class="section-title">Track Your Expenses</h2>
+            
+            <div class="expense-form">
+                <h3 class="form-title">Add New Expense</h3>
+                <form id="expenseForm">
+                    <div class="form-group">
+                        <label for="expenseName">Expense Name</label>
+                        <input type="text" id="expenseName" placeholder="e.g. Groceries" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expenseAmount">Amount</label>
+                        <input type="number" id="expenseAmount" placeholder="0.00" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="expenseCategory">Category</label>
+                        <select id="expenseCategory" required>
+                            <option value="">Select a category</option>
+                            <option value="food">Food & Dining</option>
+                            <option value="transportation">Transportation</option>
+                            <option value="housing">Housing</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="health">Health</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="expenseDate">Date</label>
+                        <input type="date" id="expenseDate" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Add Expense</button>
+                </form>
+            </div>
+            
+            <div class="expense-list">
+                <h3 class="form-title">Recent Expenses</h3>
+                <div id="expensesList">
+                    <!-- Expenses will be added here dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Budgets Section -->
+        <section id="budgets" class="dashboard">
+            <h2 class="section-title">Your Budgets</h2>
+            
+            <div class="budgets-container">
+                <div class="budget-form">
+                    <h3 class="form-title">Create New Budget</h3>
+                    <form id="budgetForm">
+                        <div class="form-group">
+                            <label for="budgetName">Budget Name</label>
+                            <input type="text" id="budgetName" placeholder="e.g. Groceries" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="budgetAmount">Amount</label>
+                            <input type="number" id="budgetAmount" placeholder="0.00" step="0.01" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="budgetCategory">Category</label>
+                            <select id="budgetCategory" required>
+                                <option value="">Select a category</option>
+                                <option value="food">Food & Dining</option>
+                                <option value="transportation">Transportation</option>
+                                <option value="housing">Housing</option>
+                                <option value="utilities">Utilities</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="shopping">Shopping</option>
+                                <option value="health">Health</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="submit-btn">Create Budget</button>
+                    </form>
+                </div>
+                
+                <div class="budgets-list">
+                    <h3 class="form-title">Your Budgets</h3>
+                    <div id="budgetsList">
+                        <!-- Budgets will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="reports" class="dashboard">
+            <h2 class="section-title">Financial Reports</h2>
+            
+            <div class="reports-container">
+                <div class="report-card">
+                    <h3>Monthly Spending Report</h3>
+                    <canvas id="monthlyReportChart" width="400" height="300"></canvas>
+                </div>
+                <div class="report-card">
+                    <h3>Category Breakdown</h3>
+                    <canvas id="categoryReportChart" width="400" height="300"></canvas>
+                </div>
+                <div class="report-card">
+                    <h3>Income vs Expenses</h3>
+                    <canvas id="incomeExpenseChart" width="400" height="300"></canvas>
+                </div>
+                <div class="report-card">
+                    <h3>Savings Progress</h3>
+                    <canvas id="savingsChart" width="400" height="300"></canvas>
+                </div>
+            </div>
+        </section>
+       
+        <!-- Game Section -->
+        <section id="game" class="dashboard">
+            <h2 class="section-title">Financial Awareness Game</h2>
+            
+            <div class="game-container">
+                <div class="game-header">
+                    <div class="player-stats">
+                        <div class="stat">
+                            <span class="stat-label">Level:</span>
+                            <span class="stat-value" id="gameLevel">1</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Score:</span>
+                            <span class="stat-value" id="gameScore">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Coins:</span>
+                            <span class="stat-value" id="gameCoins">1000</span>
+                        </div>
+                    </div>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="gameProgress">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <div class="progress-text">Progress: <span id="progressPercent">0</span>%</div>
+                    </div>
+                </div>
+                
+                <div class="game-content" id="gameContent">
+                    <div class="welcome-screen">
+                        <h3>Welcome to Financial Adventure!</h3>
+                        <p>Make smart financial decisions to progress through levels and unlock achievements.</p>
+                        <button class="start-game-btn">Start Game</button>
+                    </div>
+                </div>
+                
+                <div class="achievements-container">
+                    <h3 class="achievements-title">Achievements</h3>
+                    <div class="achievements-grid" id="achievementsList">
+                        <!-- Achievements will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Login Modal -->
+        <div id="loginModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Login to FinanceTrack</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Login</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Signup Modal -->
+        <div id="signupModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Create an Account</h2>
+                <form id="signupForm">
+                    <div class="form-group">
+                        <label for="signupName">Full Name</label>
+                        <input type="text" id="signupName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupEmail">Email</label>
+                        <input type="email" id="signupEmail" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupPassword">Password</label>
+                        <input type="password" id="signupPassword" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                        <input type="password" id="signupConfirmPassword" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Sign Up</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>FinanceTrack</h3>
+                    <p>Helping you achieve financial freedom through smart tracking and budgeting.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#" data-section="dashboard">Dashboard</a></li>
+                        <li><a href="#" data-section="expenses">Expenses</a></li>
+                        <li><a href="#" data-section="budgets">Budgets</a></li>
+                        <li><a href="#" data-section="reports">Reports</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 FinanceTrack. All rights reserved.
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
